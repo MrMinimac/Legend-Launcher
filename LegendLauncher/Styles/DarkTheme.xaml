@@ -1,0 +1,17 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+
+
+
+    <SolidColorBrush x:Key="BackgroundPrimaryColor" Color="#1E1F22"/>
+    <SolidColorBrush x:Key="BackgroundSecondaryColor" Color="#2B2D31"/>
+
+    <SolidColorBrush x:Key="BackgroundBorderColor" Color="#2B2D31"/>
+
+    <Color x:Key="BorderShadowEffectColor">#202020</Color>
+
+    <SolidColorBrush x:Key="ForegroundPrimaryColor" Color="White"/>
+    <SolidColorBrush x:Key="ForegroundSecondaryColor" Color="#9E9E9E"/>
+
+
+</ResourceDictionary>

@@ -1,0 +1,92 @@
+﻿<UserControl
+    x:Class="LegendLauncher.View.DescriptionView"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:converter="clr-namespace:LegendLauncher.Converters"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:local="clr-namespace:LegendLauncher.View"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:vm="clr-namespace:LegendLauncher.ViewModel"
+    d:DesignHeight="450"
+    d:DesignWidth="800"
+    mc:Ignorable="d">
+
+    <UserControl.Resources>
+        <converter:BoolToVisibilityConverter x:Key="BoolToVisibilityConverter" />
+    </UserControl.Resources>
+
+    <Grid>
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="70" />
+            <RowDefinition />
+        </Grid.RowDefinitions>
+
+        <StackPanel
+            HorizontalAlignment="Center"
+            VerticalAlignment="Center"
+            Orientation="Horizontal">
+
+            <Border
+                Width="125"
+                Height="30"
+                Background="{DynamicResource BackgroundSecondaryColor}"
+                CornerRadius="15">
+
+                <TextBlock
+                    x:Name="StatusText"
+                    HorizontalAlignment="Center"
+                    VerticalAlignment="Center"
+                    FontSize="14"
+                    Foreground="{Binding ServerStatusColor}"
+                    Text="{Binding ServerStatus}" />
+
+            </Border>
+
+            <Border
+                x:Name="PlayersBorder"
+                Height="30"
+                MinWidth="125"
+                Margin="10,0,0,0"
+                Background="{DynamicResource BackgroundSecondaryColor}"
+                CornerRadius="15"
+                Cursor="Hand"
+                ToolTipService.InitialShowDelay="0"
+                Visibility="{Binding PlayersBorderVisibility, Converter={StaticResource BoolToVisibilityConverter}}">
+
+                <StackPanel HorizontalAlignment="Center" Orientation="Horizontal">
+
+                    <TextBlock
+                        x:Name="PlayersText"
+                        VerticalAlignment="Center"
+                        FontSize="14"
+                        Foreground="{DynamicResource ForegroundSecondaryColor}"
+                        Text="Игроков: " />
+
+                    <TextBlock
+                        x:Name="PlayersCount"
+                        VerticalAlignment="Center"
+                        FontSize="14"
+                        Foreground="{DynamicResource PrimaryColor}"
+                        Text="{Binding OnlinePlayers}" />
+
+                </StackPanel>
+
+            </Border>
+
+        </StackPanel>
+
+        <TextBlock
+            x:Name="DescriptionTextBlock"
+            Grid.Row="2"
+            Width="840"
+            Margin="20,0,20,20"
+            HorizontalAlignment="Center"
+            VerticalAlignment="Top"
+            FontSize="22"
+            Foreground="{DynamicResource ForegroundSecondaryColor}"
+            TextAlignment="Left"
+            TextWrapping="Wrap" />
+    </Grid>
+
+</UserControl>

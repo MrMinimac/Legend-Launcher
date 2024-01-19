@@ -1,0 +1,101 @@
+﻿<Page
+    x:Class="LegendLauncher.Pages.LoginPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:local="clr-namespace:LegendLauncher.Pages"
+    xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:validate="clr-namespace:LegendLauncher.Managers"
+    xmlns:viewModel="clr-namespace:LegendLauncher.ViewModel"
+    d:DesignHeight="350"
+    d:DesignWidth="600"
+    mc:Ignorable="d">
+
+    <Page.DataContext>
+        <viewModel:LoginViewModel />
+    </Page.DataContext>
+
+    <Border
+        x:Name="PageBorder"
+        Width="600"
+        Height="350"
+        Background="{DynamicResource BackgroundPrimaryColor}"
+        CornerRadius="30"
+        Opacity="0"
+        Style="{DynamicResource PulsatingBorderStyle}">
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="110" />
+                <RowDefinition Height="50" />
+                <RowDefinition />
+                <RowDefinition Height="30" />
+            </Grid.RowDefinitions>
+
+            <TextBlock
+                HorizontalAlignment="Center"
+                VerticalAlignment="Center"
+                FontSize="25"
+                FontWeight="ExtraLight"
+                Foreground="{DynamicResource ForegroundPrimaryColor}"
+                Text="ВХОД" />
+
+            <materialDesign:PackIcon
+                Grid.Row="1"
+                Width="45"
+                Height="45"
+                Margin="0,0,250,0"
+                HorizontalAlignment="Center"
+                VerticalAlignment="Bottom"
+                Foreground="{StaticResource PrimaryColor}"
+                Kind="Account" />
+
+            <TextBox
+                x:Name="NameBox"
+                Grid.Row="1"
+                Width="200"
+                Margin="0,0,0,7"
+                HorizontalContentAlignment="Center"
+                VerticalContentAlignment="Center"
+                materialDesign:HintAssist.Foreground="{DynamicResource PrimaryColor}"
+                materialDesign:HintAssist.Hint="Логин"
+                materialDesign:TextFieldAssist.UnderlineBrush="{DynamicResource PrimaryColor}"
+                materialDesign:ValidationAssist.Background="Transparent"
+                BorderBrush="{DynamicResource ForegroundPrimaryColor}"
+                FontSize="15"
+                Foreground="{DynamicResource ForegroundSecondaryColor}"
+                Style="{DynamicResource MaterialDesignFloatingHintTextBox}"
+                TextChanged="TextBox_TextChanged">
+
+                <TextBox.Text>
+                    <Binding Path="Username" UpdateSourceTrigger="PropertyChanged">
+                        <Binding.ValidationRules>
+                            <validate:ValidationManager Type="Username" />
+                        </Binding.ValidationRules>
+                    </Binding>
+                </TextBox.Text>
+
+            </TextBox>
+
+            <Button
+                x:Name="LoginButton"
+                Grid.Row="2"
+                Width="200"
+                Height="30"
+                Margin="0,20,0,0"
+                VerticalAlignment="Bottom"
+                materialDesign:ButtonAssist.CornerRadius="15"
+                Background="{StaticResource PrimaryColor}"
+                BorderBrush="{StaticResource PrimaryColor}"
+                Click="Login_Click"
+                Content="Войти"
+                FontSize="14"
+                Foreground="White"
+                IsEnabled="False"
+                Style="{DynamicResource MaterialDesignRaisedButton}" />
+
+        </Grid>
+
+    </Border>
+
+</Page>

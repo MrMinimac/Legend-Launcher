@@ -1,0 +1,115 @@
+﻿<Window
+    x:Class="LegendLauncher.MainWindow"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:local="clr-namespace:LegendLauncher"
+    xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    Width="1300"
+    Height="700"
+    AllowsTransparency="True"
+    Background="Transparent"
+    ResizeMode="NoResize"
+    WindowStartupLocation="CenterScreen"
+    WindowStyle="None"
+    mc:Ignorable="d">
+
+    <Border
+        Width="1280"
+        Height="636"
+        Background="{DynamicResource BackgroundSecondaryColor}"
+        CornerRadius="20">
+        <Border.Effect>
+            <DropShadowEffect
+                BlurRadius="15"
+                ShadowDepth="0"
+                Color="{DynamicResource BorderShadowEffectColor}" />
+        </Border.Effect>
+
+        <Grid>
+
+            <Grid.RowDefinitions>
+                <RowDefinition Height="40" />
+                <RowDefinition />
+            </Grid.RowDefinitions>
+
+            <Grid MouseLeftButtonDown="Grid_MouseLeftButtonDown">
+                <Border
+                    Grid.Row="0"
+                    Background="{DynamicResource BackgroundPrimaryColor}"
+                    CornerRadius="20,20,0,0" />
+                <TextBlock
+                    Margin="30,0,0,0"
+                    HorizontalAlignment="Left"
+                    VerticalAlignment="Center"
+                    FontFamily="Styles/Fonts/#Poppins"
+                    FontSize="17"
+                    Foreground="{DynamicResource ForegroundSecondaryColor}"
+                    Text="Legend Launcher" />
+
+                <StackPanel
+                    Margin="0,0,10,0"
+                    HorizontalAlignment="Right"
+                    Orientation="Horizontal">
+
+                    <Button
+                        Width="30"
+                        Height="30"
+                        Margin="0,0,10,0"
+                        VerticalAlignment="Center"
+                        Click="DarkLightThemeButton"
+                        Style="{DynamicResource WithBorderTransparentButton}">
+                        <Grid>
+                            <Border Background="Transparent" />
+                            <materialDesign:PackIcon
+                                Width="20"
+                                Height="20"
+                                Kind="ThemeLightDark" />
+                        </Grid>
+                    </Button>
+
+                    <Button
+                        Width="30"
+                        Height="50"
+                        VerticalAlignment="Center"
+                        Click="Minimize_Click"
+                        Style="{DynamicResource WithBorderTransparentButton}">
+                        <Grid>
+                            <Border Background="Transparent" />
+                            <materialDesign:PackIcon
+                                Width="25"
+                                Height="25"
+                                Kind="Minimize" />
+                        </Grid>
+                    </Button>
+
+                    <Button
+                        Width="30"
+                        Height="50"
+                        VerticalAlignment="Center"
+                        Click="Close_Click"
+                        Style="{DynamicResource WithBorderTransparentButton}">
+                        <Grid>
+                            <Border Background="Transparent" />
+                            <materialDesign:PackIcon
+                                Width="25"
+                                Height="25"
+                                Kind="Close" />
+                        </Grid>
+                    </Button>
+
+                </StackPanel>
+
+            </Grid>
+
+            <Frame
+                x:Name="MainFraim"
+                Grid.Row="1"
+                NavigationUIVisibility="Hidden" />
+
+
+        </Grid>
+
+    </Border>
+</Window>
