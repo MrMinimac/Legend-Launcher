@@ -25,9 +25,9 @@ namespace LegendLauncher.Managers
 
         private readonly string serversDatDirectory = Path.Combine(minecraftDirectory, "servers.dat");
         private readonly string MCSettingsDirectory = Path.Combine(minecraftDirectory, "options.txt");
-        private readonly string ServersDatUrl = "https://github.com/MrMinimac/LegendLauncher/releases/download/FilesForLauncher/servers.dat";
-        private readonly string MCSettingsUrl = "https://github.com/MrMinimac/LegendLauncher/releases/download/FilesForLauncher/options.txt";
-        private readonly string ModUrlsJson = "https://github.com/MrMinimac/LegendLauncher/releases/download/FilesForLauncher/Mods.json";
+        private readonly string ServersDatUrl = "https://github.com/MrMinimac/Legend-Launcher/releases/download/FilesForDownloads/servers.dat";
+        private readonly string MCSettingsUrl = "https://github.com/MrMinimac/Legend-Launcher/releases/download/FilesForDownloads/options.txt";
+        private readonly string ModUrlsJson = "https://github.com/MrMinimac/Legend-Launcher/releases/download/FilesForDownloads/Mods.json";
 
         #region Initialize
 

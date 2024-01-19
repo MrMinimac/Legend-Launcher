@@ -11,8 +11,8 @@ namespace LegendLauncher.Managers
     public class UpdateManager
     {
         private readonly MainWindow mainWindow;
-        private string updateCheckUrl = "https://github.com/MrMinimac/LegendLauncher/releases/download/FilesForLauncher/updateinfo.txt";
-        private string updateUrl = "https://github.com/MrMinimac/LegendLauncher/releases/download/FilesForLauncher/Setup.exe";
+        private string updateCheckUrl = "https://github.com/MrMinimac/Legend-Launcher/releases/download/FilesForDownloads/updateinfo.txt";
+        private string updateUrl = "https://github.com/MrMinimac/Legend-Launcher/releases/download/FilesForDownloads/Setup.exe";
         private string localLauncherFolder = Path.Combine(AppSettingsManager.MinecraftDirectory, "Launcher");
 
         public event EventHandler UpdateInstallationCompleted;
